@@ -1,0 +1,37 @@
+<div class="navbar bg-base-100">
+  <div class="navbar-start"></div>
+  <div class="navbar-center">
+    <%= link_to "バグばかりのアプリケーション", root_path, class: "btn btn-ghost text-xl" %>
+  </div>
+  <div class="navbar-end">
+    <div class="dropdown dropdown-end">
+      <div tabindex="0" role="button" class="btn btn-ghost btn-circle" id="header-profile">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-8 w-8"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h7" />
+        </svg>
+      </div>
+      <ul
+        tabindex="0"
+        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+        <li><%= link_to "ホーム", root_path %></li>
+        <% if logged_in? %>
+          <li><%= link_to "投稿する", new_post_path %></li>
+          <li><%= link_to "投稿一覧", posts_path %></li>
+          <li><%= link_to "ログアウト", logout_path %></li>
+        <% else %>
+          <li><%= link_to "ログイン", login_path %></li>
+          <li><%= link_to "新規登録", signup_path %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
