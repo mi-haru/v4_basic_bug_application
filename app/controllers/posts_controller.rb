@@ -11,7 +11,7 @@ class PostsController < ApplicationController
   def show
     respond_to do |format|
       format.html do
-        @post = current_user.posts.find(params[:id])
+        @post = Post.find(params[:id])
       end
 
       format.json do
